@@ -22,7 +22,7 @@ pipeline {
                         # 3. Deploy using Docker Compose
                         ssh -i \$SSH_KEY -o StrictHostKeyChecking=no ${SSH_USER}@${SERVER_IP} '
                             cd ${REMOTE_DIR}
-                            # Create .env file if it doesn't exist (you might want to manage secrets differently)
+                            # Create .env file if it doesn't exist
                             if [ ! -f .env ]; then
                                 cp .env.example .env
                                 echo "WARNING: Using .env.example. Please configure .env on the server."
