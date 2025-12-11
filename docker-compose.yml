@@ -3,7 +3,7 @@ version: '3.8'
 services:
   frontend:
     build: ./exped360-main-work
-    container_name: exped360-frontend
+    container_name: VisiteHub-frontend
     ports:
       - "3001:3001"
     environment:
@@ -14,7 +14,7 @@ services:
 
   backend:
     build: ./exped360-backend
-    container_name: exped360-backend
+    container_name: VisiteHub-backend
     ports:
       - "4000:4000"
     environment:
@@ -37,7 +37,7 @@ services:
 
   db:
     image: mysql:8.0
-    container_name: exped360-db
+    container_name: VisiteHub-db
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       MYSQL_DATABASE: ${DB_DATABASE}
@@ -50,7 +50,7 @@ services:
 
   redis:
     image: redis:alpine
-    container_name: exped360-redis
+    container_name: VisiteHub-redis
     restart: unless-stopped
 
 volumes:
