@@ -8,13 +8,6 @@ pipeline {
     }
 
     stages {
-        stage('Build Docker Images') {
-            steps {
-                // Build images locally to verify Dockerfiles (optional, can rely on remote build)
-                sh 'docker-compose build'
-            }
-        }
-
         stage('Deploy to Server') {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'deploy-key-pem', keyFileVariable: 'SSH_KEY')]) {
