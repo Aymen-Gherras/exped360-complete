@@ -17,7 +17,7 @@ pipeline {
                         
                         # 2. Transfer Files
                         # We exclude node_modules, .git, and local build artifacts to speed up transfer
-                        tar --exclude='node_modules' --exclude='.git' --exclude='.next' --exclude='dist' -czf - . | ssh -i \$SSH_KEY -o StrictHostKeyChecking=no ${SSH_USER}@${SERVER_IP} "tar -xzf - -C ${REMOTE_DIR}"
+                        tar --exclude='node_modules' --exclude='.git' --exclude='.next' -czf - . | ssh -i \$SSH_KEY -o StrictHostKeyChecking=no ${SSH_USER}@${SERVER_IP} "tar -xzf - -C ${REMOTE_DIR}"
                         
                         # 3. Deploy using Docker Compose
                         ssh -i \$SSH_KEY -o StrictHostKeyChecking=no ${SSH_USER}@${SERVER_IP} 'bash -s' << 'ENDSSH'
