@@ -197,8 +197,8 @@ export class ApiService {
   private baseUrl: string;
 
   constructor() {
-    // Use environment variable or fallback to localhost for development
-    this.baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000';
+    // Use environment variable or fallback to production IP
+    this.baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://213.199.58.144:4000';
     console.log('API Service: Constructor - NEXT_PUBLIC_API_BASE_URL:', process.env.NEXT_PUBLIC_API_BASE_URL);
     console.log('API Service: Constructor - Final baseUrl:', this.baseUrl);
     
